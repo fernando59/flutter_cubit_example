@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit/bloc/user/user_cubit.dart';
 
+import '../bloc/theme/theme_cubit.dart';
 import '../models/user.dart';
 
 class Page1Screen extends StatelessWidget {
@@ -9,10 +10,18 @@ class Page1Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeCubit = context.read<ThemeCubit>();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Page 1'),
         centerTitle: true,
+        actions: [
+          ElevatedButton(
+              onPressed: () {
+                themeCubit.toggleTheme();
+              },
+              child: const Text('Toggle'))
+        ],
       ),
       body: BlocBuilder<UserCubit, UserState>(
         builder: (BuildContext context, state) {
@@ -28,7 +37,6 @@ class Page1Screen extends StatelessWidget {
           return Container();
         },
       ),
-      // body: const _UserInformation(),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.accessibility_new),
         onPressed: () => Navigator.pushNamed(context, 'page2'),
