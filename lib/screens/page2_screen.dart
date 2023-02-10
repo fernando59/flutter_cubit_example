@@ -29,7 +29,9 @@ class Page2Screen extends StatelessWidget {
           ),
           MaterialButton(
             color: Colors.blue,
-            onPressed: () {},
+            onPressed: () {
+              usuarioCubit.changeAge(23);
+            },
             child:
                 const Text('Change Age', style: TextStyle(color: Colors.white)),
           ),
