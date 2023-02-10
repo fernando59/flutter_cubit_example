@@ -37,7 +37,9 @@ class Page2Screen extends StatelessWidget {
           ),
           MaterialButton(
             color: Colors.blue,
-            onPressed: () {},
+            onPressed: () {
+              usuarioCubit.addProfession();
+            },
             child: const Text('Add Profesion',
                 style: TextStyle(color: Colors.white)),
           ),

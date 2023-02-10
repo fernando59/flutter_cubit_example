@@ -47,21 +47,23 @@ class _UserInformation extends StatelessWidget {
       width: double.infinity,
       height: double.infinity,
       padding: const EdgeInsets.all(20.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text('General',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          const Divider(),
-          ListTile(title: Text('Name : ${user.name}')),
-          ListTile(title: Text('Age: ${user.age} ')),
-          const Text('Profesions',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-          const Divider(),
-          ...user.profesions
-              .map((profession) => ListTile(title: Text(profession)))
-              .toList()
-        ],
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('General',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Divider(),
+            ListTile(title: Text('Name : ${user.name}')),
+            ListTile(title: Text('Age: ${user.age} ')),
+            const Text('Profesions',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+            const Divider(),
+            ...user.profesions
+                .map((profession) => ListTile(title: Text(profession)))
+                .toList()
+          ],
+        ),
       ),
     );
   }
